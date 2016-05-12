@@ -47,10 +47,20 @@ $app->get('/place-call', function () use ($app) { return view('form'); });
 $app->post('/place-call', function (\Illuminate\Http\Request $request) use ($app) {
     $phone_ip = $request->input('phone_ip');
     $push_url = 'http://' . $phone_ip . '/push';
-    $payload = new \SimpleXMLElement("<PolycomIPPhone></PolycomIPPhone>");
-    $payload->addChild("Data", "Tel:" . $request->input('number') . ";1;")->addAttribute("priority", "Critical");
+    $number = $request->input('number');
+$xml = <<<XML
+<PolycomIPPhone>
+    <Data priority="Critical">\r\n
+        Tel:$number;1;\r\n
+    </Data>
+</PolycomIPPhone>
+XML;
 
-    $payload->asXML('/home/vagrant/Code/' . date('Y-m-d H:i:s') . ' - Event post.xml');
+    $payload = new \SimpleXMLElement($xml);
+//    return $payload->asXML('/Users/bajke/Documents/test.xml');
+//    $payload->addChild("Data", "Tel:" . $request->input('number') . ";1;")->addAttribute("priority", "Critical");
+
+//    $payload->asXML('/home/vagrant/Code/' . date('Y-m-d H:i:s') . ' - Event post.xml');
     $http = new \GuzzleHttp\Client();
 
     $response = $http->post($push_url, [
