@@ -51,7 +51,7 @@ $app->post('/place-call', function (\Illuminate\Http\Request $request) use ($app
 $xml = <<<XML
 <PolycomIPPhone>
     <Data priority="Critical">
-        Tel:$number;Line1
+        tel://$number;Line1
     </Data>
 </PolycomIPPhone>
 XML;
