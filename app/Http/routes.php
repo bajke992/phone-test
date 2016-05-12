@@ -56,7 +56,7 @@ $xml = <<<XML
 </PolycomIPPhone>
 XML;
 
-    $payload = new \SimpleXMLElement($xml);
+//    $payload = new \SimpleXMLElement($xml);
 //    return $payload->asXML('/Users/bajke/Documents/test.xml');
 //    $payload->addChild("Data", "Tel:" . $request->input('number') . ";1;")->addAttribute("priority", "Critical");
 
@@ -68,7 +68,8 @@ XML;
         'headers' => [
             'Content-Type' => 'application/x-com-polycom-spipx.'
         ],
-        'body' => $payload->asXML()
+//        'body' => $payload->asXML()
+        'body' => $xml
     ]);
 
     $api_dev_key = '07f1f608ac24ee277e77214160bf4c67';
