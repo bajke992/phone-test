@@ -46,7 +46,7 @@ $app->post('/event-post', function (\Illuminate\Http\Request $request) use ($app
 $app->get('/place-call', function () use ($app) { return view('form'); });
 $app->post('/place-call', function (\Illuminate\Http\Request $request) use ($app) {
     $phone_ip = $request->input('phone_ip');
-    $push_url = 'http://' . $phone_ip . '/push';
+    $push_url = 'https://' . $phone_ip . '/push';
     $number = $request->input('number');
 $xml = <<<XML
 <PolycomIPPhone>
