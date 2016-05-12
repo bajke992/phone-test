@@ -48,21 +48,10 @@ $app->post('/place-call', function (\Illuminate\Http\Request $request) use ($app
     $phone_ip = $request->input('phone_ip');
     $push_url = 'http://' . $phone_ip . '/push';
     $number = $request->input('number');
-//    5145813161
 $xml = <<<XML
 <PolycomIPPhone>
     <Data priority="Critical">
-        Key:Line1
-        Key:DialPad5
-        Key:DialPad1
-        Key:DialPad4
-        Key:DialPad5
-        Key:DialPad8
-        Key:DialPad1
-        Key:DialPad3
-        Key:DialPad1
-        Key:DialPad6
-        Key:DialPad1
+        Tel:$number;Line1;ext=104
     </Data>
 </PolycomIPPhone>
 XML;
