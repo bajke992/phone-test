@@ -49,9 +49,10 @@ $app->post('/place-call', function (\Illuminate\Http\Request $request) use ($app
     $push_url = 'http://' . $phone_ip . '/push';
     $number = $request->input('number');
 $xml = <<<XML
+<?xml version="1.0" encoding="UTF-8"?>
 <PolycomIPPhone>
     <Data priority="Critical">\r\n
-        Tel:$number;1;\r\n
+        Tel:$number;1\r\n
     </Data>
 </PolycomIPPhone>
 XML;
