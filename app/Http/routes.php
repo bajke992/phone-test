@@ -66,7 +66,7 @@ XML;
     $response = $http->post($push_url, [
         'auth' => ['polycom', 456],
         'headers' => [
-            'Content-Type' => 'application/x-com-polycom-spipx.'
+            'Content-Type' => 'application/x-com-polycom-spipx'
         ],
 //        'body' => $payload->asXML()
         'body' => $xml
