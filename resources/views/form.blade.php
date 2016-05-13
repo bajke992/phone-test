@@ -23,18 +23,16 @@
 <script>
 
     function call203(){
-        $.ajax({
-            type: "POST",
-            url: "http://" + $('#phone_ip').val() + "/push",
-            headers: {
-                "Authorization": "Digest polycom:456"
-            },
-            contentType: "application/x-com-polycom-spipx",
-            data: '<PolycomIPPhone><Data priority="Critical">tel://203</Data></PolycomIPPhone>',
-            success: function (data) {
-                console.log(data);
-            }
-        });
+        var xhr = new XMLHttpRequest();
+//        var fd = new FormData();
+
+        var xml = '<PolycomIPPhone><Data priority="Critical">tel://203</Data></PolycomIPPhone>';
+
+        xhr.setRequestHeader("Authorization", "Digest polycom:456");
+        xhr.setRequestHeader("Content-Type", "application/x-com-polycom-spipx");
+
+        xhr.open("POST", "http://" + $('#phone_ip').val() + "/push");
+        xhr.send(xml);
     }
 
 </script>
