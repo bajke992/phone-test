@@ -60,7 +60,7 @@ XML;
     $http = new \GuzzleHttp\Client();
 
     $response = $http->post($push_url, [
-        'auth' => ['polycom', 456],
+        'auth' => ['polycom', 456, 'digest'],
         'headers' => [
             'Content-Type' => 'application/x-com-polycom-spipx'
         ],
