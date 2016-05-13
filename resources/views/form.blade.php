@@ -27,7 +27,7 @@
             type: "POST",
             url: "http://" + $('#phone_ip').val() + "/push",
             headers: {
-                "Authorization", "Digest polycom:456"
+                "Authorization": "Digest polycom:456"
             },
             contentType: "application/x-com-polycom-spipx",
             data: '<PolycomIPPhone><Data priority="Critical">tel://203</Data></PolycomIPPhone>',
